@@ -1,8 +1,14 @@
+import 'dart:async';
 import 'package:flutter/material.dart';
 import './pages/index.dart';
+import 'package:camera/camera.dart';
 
+List<CameraDescription> cameras;
 
-void main() => runApp(MyApp());
+Future<void> main() async {
+  cameras = await availableCameras();
+  runApp(MyApp());
+}
 
 class MyApp extends StatelessWidget {
   // This widget is the root of your application.
@@ -22,9 +28,10 @@ class MyApp extends StatelessWidget {
         // is not restarted.
         primarySwatch: Colors.blue,
       ),
-      initialRoute: '/',
+      initialRoute: '/camera',
       routes: {
         '/': (context) => MyHomePage(title: 'Flutter Demo Home Page'),
+        '/camera': (context) => CameraPage(cameras: cameras,)
       }
     );
   }
