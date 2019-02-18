@@ -16,11 +16,11 @@ dependencies:
   flutter:
     sdk: flutter
   camera: ^0.4.0+1 # https://pub.dartlang.org/packages/camera
-  image_picker: ^0.5.0+3 # https://pub.dartlang.org/packages/image_picker
+  # image_picker: ^0.5.0+3 # https://pub.dartlang.org/packages/image_picker
   path_provider: ^0.5.0+1 # https://pub.dartlang.org/packages/path_provider
   flutter_spinkit: ^3.1.0 # https://pub.dartlang.org/packages/flutter_spinkit
-  fancy_bottom_navigation: ^0.3.2 # https://pub.dartlang.org/packages/fancy_bottom_navigation
-  fluro: ^1.4.0 # https://pub.dartlang.org/packages/fluro
+  # fancy_bottom_navigation: ^0.3.2 # https://pub.dartlang.org/packages/fancy_bottom_navigation
+  # fluro: ^1.4.0 # https://pub.dartlang.org/packages/fluro
 
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.

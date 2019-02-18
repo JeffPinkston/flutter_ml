@@ -12,6 +12,21 @@ class CameraPage extends StatefulWidget {
   _CameraPageState createState() => _CameraPageState();
 }
 
+IconData getCameraLensIcon(CameraLensDirection direction) {
+  switch (direction) {
+    case CameraLensDirection.back:
+      return Icons.camera_rear;
+    case CameraLensDirection.front:
+      return Icons.camera_front;
+    case CameraLensDirection.external:
+      return Icons.camera;
+  }
+  throw ArgumentError('Unknown lens direction');
+}
+
+void logError(String code, String message) =>
+    print('Error: $code\nError Message: $message');
+
 class _CameraPageState extends State<CameraPage> {
   CameraController controller;
 
@@ -42,9 +57,15 @@ class _CameraPageState extends State<CameraPage> {
   }
 
   _showCameraPreview() {
-    return AspectRatio(
-      aspectRatio: controller.value.aspectRatio,
-      child: CameraPreview(controller),
+    return Scaffold(
+      // key: _scaffoldKey,
+      appBar: AppBar(
+        title: const Text('Camera example'),
+      ),
+      body: AspectRatio(
+        aspectRatio: controller.value.aspectRatio,
+        child: CameraPreview(controller),
+    )
     );
   }
 
