@@ -30,8 +30,8 @@ class MyApp extends StatelessWidget {
       ),
       initialRoute: '/camera',
       routes: {
-        '/': (context) => MyHomePage(title: 'Flutter Demo Home Page'),
-        '/camera': (context) => CameraPage(cameras: cameras,)
+        '/': (context) => CameraPage(cameras: cameras,),
+        '/counter': (context) => MyHomePage(title: 'Flutter Demo Home Page')
       }
     );
   }

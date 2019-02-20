@@ -128,10 +128,12 @@ class _CameraPageState extends State<CameraPage> {
           bottomNavigationBar: FancyBottomNavigation(
           tabs: [
             TabData(
+              value: '',
               iconData: getCameraLensIcon(CameraLensDirection.front),
               title: 'Front Camera'
             ),
             TabData(
+              value: '',
               iconData: getCameraLensIcon(CameraLensDirection.back),
               title: 'Back Camera'
             )
@@ -142,7 +144,7 @@ class _CameraPageState extends State<CameraPage> {
             setState(() {
               currentCamera = position;
             });
-            onNewCameraSelected(position);
+            onNewCameraSelected();
           },
         ),
       );
@@ -150,11 +152,11 @@ class _CameraPageState extends State<CameraPage> {
     }
   }
 
-  void onNewCameraSelected(int position) async {
+  void onNewCameraSelected(CameraDescription cameraDescription) async {
     if (controller != null) {
       await controller.dispose();
     }
-    controller = CameraController(cameras[position], ResolutionPreset.high);
+    controller = CameraController(cameraDescription, ResolutionPreset.high);
 
     // If the controller is updated then update the UI.
     controller.addListener(() {
