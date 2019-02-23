@@ -1,6 +1,6 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
-import './pages/index.dart';
+import 'package:flutter_ml/screens/index.dart';
 import 'package:camera/camera.dart';
 
 List<CameraDescription> cameras;
@@ -28,9 +28,10 @@ class MyApp extends StatelessWidget {
         // is not restarted.
         primarySwatch: Colors.blue,
       ),
-      initialRoute: '/camera',
+      initialRoute: '/',
       routes: {
-        '/': (context) => CameraPage(cameras: cameras,),
+        '/': (context) => ImagePickerPage(),
+        '/camera': (context) => CameraPage(cameras: cameras,),
         '/counter': (context) => MyHomePage(title: 'Flutter Demo Home Page')
       }
     );
